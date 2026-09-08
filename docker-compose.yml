@@ -20,6 +20,8 @@ services:
   backend:
     build: ./backend
     user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      - HOME=/tmp
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend:/app
